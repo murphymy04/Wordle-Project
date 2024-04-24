@@ -1,39 +1,15 @@
 package application;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SampleController {
 	ShadowData data = new ShadowData();
-	@FXML
-	private TextField B1;
-	@FXML
-	private TextField B2;
-	@FXML
-	private TextField B3;
-	@FXML
-	private TextField B4;
-	@FXML
-	private TextField B5;
-	@FXML
-	private TextField B6;
-	@FXML
-	private TextField B7;
-	@FXML
-	private TextField B8;
-	@FXML
-	private TextField B9;
-	@FXML
-	private TextField B10;
-	@FXML
-	private TextField B11;
-	
+	SelectWord selector = new SelectWord();
+	Log gameLog = new Log();
 	
 	@FXML
 	private Button A;
@@ -92,153 +68,230 @@ public class SampleController {
 	@FXML
 	private Button BackKey;
 	
-	private ArrayList<Button> keyboard = new ArrayList<Button>(Arrays.asList(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z));
+	@FXML
+	private Label L1;
+	@FXML
+	private Label L2;
+	@FXML
+	private Label L3;
+	@FXML
+	private Label L4;
+	@FXML
+	private Label L5;
+	@FXML
+	private Label L6;
+	@FXML
+	private Label L7;
+	@FXML
+	private Label L8;
+	@FXML
+	private Label L9;
+	@FXML
+	private Label L10;
+	@FXML
+	private Label L11;
+	@FXML
+	private Label L12;
+	@FXML
+	private Label L13;
+	@FXML
+	private Label L14;
+	@FXML
+	private Label L15;
+	@FXML
+	private Label L16;
+	@FXML
+	private Label L17;
+	@FXML
+	private Label L18;
+	@FXML
+	private Label L19;
+	@FXML
+	private Label L20;
+	@FXML
+	private Label L21;
+	@FXML
+	private Label L22;
+	@FXML
+	private Label L23;
+	@FXML
+	private Label L24;
+	@FXML
+	private Label L25;
+	@FXML
+	private Label L26;
+	@FXML
+	private Label L27;
+	@FXML
+	private Label L28;
+	@FXML
+	private Label L29;
+	@FXML
+	private Label L30;
+	@FXML
+	private Label L31;
+	
+	ArrayList<Button> buttons = new ArrayList<Button>();
+	ArrayList<Label> row1 = new ArrayList<Label>();
+	ArrayList<Label> row2 = new ArrayList<Label>();
+	ArrayList<Label> row3 = new ArrayList<Label>();
+	ArrayList<Label> row4 = new ArrayList<Label>();
+	ArrayList<Label> row5 = new ArrayList<Label>();
+	ArrayList<Label> row6 = new ArrayList<Label>();
+	ArrayList<ArrayList<Label>> board = new ArrayList<ArrayList<Label>>();
+	
 	
 	
 	public void initialize() {
-		SelectWord selector = new SelectWord();
 		String answer = selector.getRandomWord().toUpperCase();
 		data.setAnswer(answer);
 		System.out.println(answer);
+		buttons.addAll(Arrays.asList(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z));
+		row1.add(L1);
+		row1.add(L2);
+		row1.add(L3);
+		row1.add(L4);
+		row1.add(L5);
 		
-		// row 1
-		B1.textProperty().addListener(new ValidateListener(B1));
-		B2.textProperty().addListener(new ValidateListener(B2));
-		B3.textProperty().addListener(new ValidateListener(B3));
-		B4.textProperty().addListener(new ValidateListener(B4));
-		B5.textProperty().addListener(new ValidateListener(B5));
-		pressKey(B1, B2, B1);
-		pressKey(B2, B3, B1);
-		pressKey(B3, B4, B2);
-		pressKey(B4, B5, B3);
-		enter(B5, B6, B4, B3, B2, B1);
-		buttonPress(A, B1, B2);
-		buttonPress(B, B2, B3);
+		row2.add(L6);
+		row2.add(L7);
+		row2.add(L8);
+		row2.add(L9);
+		row2.add(L10);
 		
-		// row 2
-		B6.textProperty().addListener(new ValidateListener(B6));
-		B7.textProperty().addListener(new ValidateListener(B7));
-		B8.textProperty().addListener(new ValidateListener(B8));
-		B9.textProperty().addListener(new ValidateListener(B9));
-		B10.textProperty().addListener(new ValidateListener(B10));
-		pressKey(B6, B7, B6);
-		pressKey(B7, B8, B6);
-		pressKey(B8, B9, B7);
-		pressKey(B9, B10, B8);
-		enter(B10, B11, B9, B8, B7, B6);
+		row3.add(L11);
+		row3.add(L12);
+		row3.add(L13);
+		row3.add(L14);
+		row3.add(L15);
 		
-		// row 3
+		row4.add(L16);
+		row4.add(L17);
+		row4.add(L18);
+		row4.add(L19);
+		row4.add(L20);
 		
+		row5.add(L21);
+		row5.add(L22);
+		row5.add(L23);
+		row5.add(L24);
+		row5.add(L25);
 		
+		row6.add(L26);
+		row6.add(L27);
+		row6.add(L28);
+		row6.add(L29);
+		row6.add(L30);
+		
+		board.add(row1);
+		board.add(row2);
+		board.add(row3);
+		board.add(row4);
+		board.add(row5);
+		board.add(row6);
+
+		buttonPress(A);
+		buttonPress(B);
+		buttonPress(C);
+		buttonPress(D);
+		buttonPress(E);
+		buttonPress(F);
+		buttonPress(G);
+		buttonPress(H);
+		buttonPress(I);
+		buttonPress(J);
+		buttonPress(K);
+		buttonPress(L);
+		buttonPress(M);
+		buttonPress(N);
+		buttonPress(O);
+		buttonPress(P);
+		buttonPress(Q);
+		buttonPress(R);
+		buttonPress(S);
+		buttonPress(T);
+		buttonPress(U);
+		buttonPress(V);
+		buttonPress(W);
+		buttonPress(X);
+		buttonPress(Y);
+		buttonPress(Z);
+		enter(EnterKey);
+		backSpace(BackKey);
 	}
 	
-	private void pressKey(TextField current, TextField next, TextField prev) {
-		current.setOnKeyReleased(event -> {
-			String text = current.getText();
-			char textChar = '0';
-			try {
-				textChar = text.charAt(0);
-			}
-			catch (Exception e) {}
-			
-			if (Character.isAlphabetic(textChar)) {
-				next.requestFocus();
-			}
-			else if (event.getCode() == KeyCode.BACK_SPACE || event.getCode() == KeyCode.DELETE) {
-				prev.requestFocus();
-			}
-		});
-	}
-	
-	private void buttonPress(Button b, TextField current, TextField next) {
+	private void buttonPress(Button b) {
 		b.setOnAction(event -> {
-			current.requestFocus();
-			current.setText(b.getId());
-			next.requestFocus();
-		});
-	}
-	
-	private void enter(TextField current, TextField next, TextField prev, TextField B3, TextField B2, TextField B1) {
-		current.setOnKeyReleased(event -> {
-			if (event.getCode() == KeyCode.ENTER) {
-				next.requestFocus();
-				String guess = B1.getText() + B2.getText() + B3.getText() + prev.getText() + current.getText();
-				boolean won = validateGuess(guess, B1, B2, B3, prev, current);
-				if (won) System.out.println("You Won!");
+			if (gameLog.get_currChar() >= 5) {
+				System.out.println("Warning: Must be a 5 letter word");
 			}
-			else if (event.getCode() == KeyCode.BACK_SPACE || event.getCode() == KeyCode.DELETE) {
-				prev.requestFocus();
+			else {
+				board.get(gameLog.get_numGuesses()).get(gameLog.get_currChar()).setText(b.getId());
+				gameLog.addChar();
 			}
 		});
 	}
 	
-	private boolean validateGuess(String guess, TextField B1, TextField B2, TextField B3, TextField B4, TextField B5) {
+	private void backSpace(Button b) {
+		b.setOnAction(event -> {
+			if (gameLog.get_currChar() > 0) { 
+				gameLog.decChar();
+				board.get(gameLog.get_numGuesses()).get(gameLog.get_currChar()).setText("");
+			}
+			else {
+				board.get(gameLog.get_numGuesses()).get(gameLog.get_currChar()).setText("");
+			}
+		});
+	}
+	
+	private void enter(Button b) {
+		b.setOnAction(event -> {
+			if (gameLog.get_currChar() > 4) {
+				String guess = board.get(gameLog.get_numGuesses()).get(0).getText() + board.get(gameLog.get_numGuesses()).get(1).getText() + board.get(gameLog.get_numGuesses()).get(2).getText() + board.get(gameLog.get_numGuesses()).get(3).getText() + board.get(gameLog.get_numGuesses()).get(4).getText();
+				boolean won = validateGuess(guess);
+				gameLog.resetChar();
+				gameLog.addGuess();
+				if (won) {
+					System.out.println("You Won!");
+					for (int i=0; i<26; i++) {
+						buttons.get(i).setDisable(true);
+					}
+					EnterKey.setDisable(true);
+					BackKey.setDisable(true);
+					gameLog.endGame(won);
+				}
+				
+			}
+			else {
+				System.out.println("Warning: This is not a 5 letter word");
+			}
+		});
+	}
+	
+	private boolean validateGuess(String guess) {
+		if (!selector.contains(guess)) System.out.println("Warning: Guess is not in word list");
 		boolean correct = true;
 		for (int i=0; i<5; i++) {
 			int val = data.updateData(guess.charAt(i), i);
 			if (val != 2) correct = false;
 			
 			if (val == 0) {
-				if (i == 0) B1.setStyle("-fx-background-color: red;");
-				else if (i == 1) B2.setStyle("-fx-background-color: red;");
-				else if (i == 2) B3.setStyle("-fx-background-color: red;");
-				else if (i == 3) B4.setStyle("-fx-background-color: red;");
-				else if (i == 4) B5.setStyle("-fx-background-color: red;");
+				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: red;");
+				for (int j=0; j<26; j++) {
+					if (board.get(gameLog.get_numGuesses()).get(i).getText() == buttons.get(j).getId()) buttons.get(j).setDisable(true);
+				}
 			}
 			else if (val == 1) {
-				if (i == 0) B1.setStyle("-fx-background-color: yellow;");
-				else if (i == 1) B2.setStyle("-fx-background-color: yellow;");
-				else if (i == 2) B3.setStyle("-fx-background-color: yellow;");
-				else if (i == 3) B4.setStyle("-fx-background-color: yellow;");
-				else if (i == 4) B5.setStyle("-fx-background-color: yellow;");
+				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: yellow;");
 			}
 			else if (val == 2) {
-				if (i == 0) B1.setStyle("-fx-background-color: green;");
-				else if (i == 1) B2.setStyle("-fx-background-color: green;");
-				else if (i == 2) B3.setStyle("-fx-background-color: green;");
-				else if (i == 3) B4.setStyle("-fx-background-color: green;");
-				else if (i == 4) B5.setStyle("-fx-background-color: green;");
+				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: green;");
 			}
 		}
 		
-		// disable row from being changed
-		B1.setEditable(false);
-		B2.setEditable(false);
-		B3.setEditable(false);
-		B4.setEditable(false);
-		B5.setEditable(false);
 		return correct;
 	}
 	
-	
-	private static class ValidateListener implements ChangeListener<String> {
-		private final TextField textField;
-		
-		public ValidateListener(TextField textField) {
-			this.textField = textField;
-		}
-		
-		@Override
-		public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-			char newChar = '0';
-			try {
-				newChar = newValue.charAt(0);
-			}
-			catch(Exception e) {}
-			
-			if (!Character.isAlphabetic(newChar)) {
-				textField.setText("");
-			}
-			
-			else if (newValue.length() > 1) {
-				textField.setText(oldValue);
-			}
-			
-			else {
-				textField.setText(newValue.toUpperCase());
-			}
-		}
-	}
 	
 	/* TODO:
 	 -make log class which include: # of wins, win rate, streak, max streak, guess distribution
@@ -249,7 +302,4 @@ public class SampleController {
 	 -add warnings, see docs for details
 	 -make ui nicer
 	 */
-	
-	
-	
 }

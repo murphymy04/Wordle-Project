@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -27,20 +26,43 @@
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="B1" prefHeight="70.0" prefWidth="70.0" />
-            <TextField fx:id="B2" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" />
-            <TextField fx:id="B3" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" />
-            <TextField fx:id="B4" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" />
-            <TextField fx:id="B5" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" />
-            <TextField fx:id="B6" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="1" />
-            <TextField fx:id="B7" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="B8" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="B9" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="B10" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField fx:id="B11" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="2" />
+            <Label fx:id="L1" prefHeight="70.0" prefWidth="70.0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="L2" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" />
+            <Label fx:id="L3" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" />
+            <Label fx:id="L4" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" />
+            <Label fx:id="L5" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" />
+            <Label fx:id="L6" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="1" />
+            <Label fx:id="L7" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="L8" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="L9" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="L10" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label fx:id="L11" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="2" />
+            <Label fx:id="L12" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="L13" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="L14" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="L15" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label fx:id="L16" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="3" />
+            <Label fx:id="L17" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="L18" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="L19" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label fx:id="L20" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label fx:id="L21" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4" />
+            <Label fx:id="L22" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="L23" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="L24" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label fx:id="L25" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label fx:id="L26" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="5" />
+            <Label fx:id="L27" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="L28" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label fx:id="L29" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="L30" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </center>

@@ -10,12 +10,14 @@ import java.util.List;
 
 public class SelectWord {
 	
+	private String[] wordList;
+	
 	public String getRandomWord() {
 	    try {
 	      // get words and used words
 	      File words = new File("wordList.txt");
 	      Scanner sc = new Scanner(words);
-	      String[] wordList = new String[2400];
+	      wordList = new String[2400];
 	      int i = 0;
 	      while (sc.hasNextLine()) {
 	         wordList[i] = sc.nextLine();
@@ -54,4 +56,8 @@ public class SelectWord {
 
 	    return "";
 	   } 
+	
+	public boolean contains(String word) {
+		return Arrays.asList(wordList).contains(word.toLowerCase());
+	}
 }
