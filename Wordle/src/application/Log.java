@@ -64,7 +64,12 @@ public class Log {
 		return numGuesses;
 	}
 	
-	public void endGame(boolean won) {
+	public void resetGuesses() {
+		numGuesses = 0;
+		
+	}
+
+	public void endGame(boolean won, String answer) {
 		if (won) {
 			onStreak = true;
 			currStreak += 1;

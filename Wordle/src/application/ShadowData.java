@@ -22,6 +22,12 @@ public class ShadowData {
 		}
 	}
 	
+	public void resetData() {
+		for (char c='A'; c <= 'Z'; c++) {
+			data.replace(c, -1);
+		}	
+	}
+	
 	public int updateData(char entry, int index) {
 		int flag = -1; 
 		if (entry == answer.charAt(index)) {

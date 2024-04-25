@@ -10,6 +10,7 @@ public class SampleController {
 	ShadowData data = new ShadowData();
 	SelectWord selector = new SelectWord();
 	Log gameLog = new Log();
+	String answer;
 	
 	@FXML
 	private Button A;
@@ -67,6 +68,8 @@ public class SampleController {
 	private Button EnterKey;
 	@FXML
 	private Button BackKey;
+	@FXML
+	private Button reset;
 	
 	@FXML
 	private Label L1;
@@ -128,8 +131,6 @@ public class SampleController {
 	private Label L29;
 	@FXML
 	private Label L30;
-	@FXML
-	private Label L31;
 	
 	ArrayList<Button> buttons = new ArrayList<Button>();
 	ArrayList<Label> row1 = new ArrayList<Label>();
@@ -140,12 +141,10 @@ public class SampleController {
 	ArrayList<Label> row6 = new ArrayList<Label>();
 	ArrayList<ArrayList<Label>> board = new ArrayList<ArrayList<Label>>();
 	
-	
-	
 	public void initialize() {
-		String answer = selector.getRandomWord().toUpperCase();
+		answer = selector.getRandomWord().toUpperCase();
 		data.setAnswer(answer);
-		System.out.println(answer);
+		//System.out.println(answer);
 		buttons.addAll(Arrays.asList(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z));
 		row1.add(L1);
 		row1.add(L2);
@@ -218,6 +217,7 @@ public class SampleController {
 		buttonPress(Z);
 		enter(EnterKey);
 		backSpace(BackKey);
+		resetGame(reset);
 	}
 	
 	private void buttonPress(Button b) {
@@ -251,16 +251,14 @@ public class SampleController {
 				boolean won = validateGuess(guess);
 				gameLog.resetChar();
 				gameLog.addGuess();
-				if (won) {
-					System.out.println("You Won!");
+				if (won || (!won && gameLog.get_numGuesses() == 6)) {
 					for (int i=0; i<26; i++) {
 						buttons.get(i).setDisable(true);
 					}
 					EnterKey.setDisable(true);
 					BackKey.setDisable(true);
-					gameLog.endGame(won);
+					gameLog.endGame(won, answer);
 				}
-				
 			}
 			else {
 				System.out.println("Warning: This is not a 5 letter word");
@@ -268,8 +266,37 @@ public class SampleController {
 		});
 	}
 	
+	private void resetGame(Button b) {
+		b.setOnAction(event -> {
+			// clear board
+			for (int i=0; i<6; i++) {
+				for (int j=0; j<5; j++) {
+					board.get(i).get(j).setText("");
+					board.get(i).get(j).setStyle("-fx-background-color: white;");
+				}
+			}
+			for (int i=0; i<26; i++) {
+				buttons.get(i).setDisable(false);
+			}
+			EnterKey.setDisable(false);
+			BackKey.setDisable(false);
+			
+			// fix game log
+			gameLog.resetChar();
+			gameLog.resetGuesses();
+			
+			// select new word and set word
+			answer = selector.getRandomWord().toUpperCase();
+			data.resetData();
+			data.setAnswer(answer);
+			//System.out.println(answer);
+		});
+	}
+	
 	private boolean validateGuess(String guess) {
-		if (!selector.contains(guess)) System.out.println("Warning: Guess is not in word list");
+		if (!selector.contains(guess)) {
+			System.out.println("Warning: Guess is not in word list");
+		}
 		boolean correct = true;
 		for (int i=0; i<5; i++) {
 			int val = data.updateData(guess.charAt(i), i);
@@ -294,12 +321,8 @@ public class SampleController {
 	
 	
 	/* TODO:
-	 -make log class which include: # of wins, win rate, streak, max streak, guess distribution
-	 -disable all rows besides row 1 initially, and enable each one by one on enter
-	 -make button keyboard
-	 -reset button
+	 -fix ethan
 	 -load and save feature
-	 -add warnings, see docs for details
 	 -make ui nicer
 	 */
 }

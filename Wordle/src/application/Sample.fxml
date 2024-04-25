@@ -110,4 +110,7 @@
          </children>
       </FlowPane>
    </bottom>
+   <left>
+      <Button fx:id="reset" mnemonicParsing="false" text="Reset Button" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
