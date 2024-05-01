@@ -1,8 +1,14 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,6 +17,7 @@ public class SampleController {
 	SelectWord selector = new SelectWord();
 	Log gameLog = new Log();
 	String answer;
+	boolean isValidWord = true;
 	
 	@FXML
 	private Button A;
@@ -70,6 +77,10 @@ public class SampleController {
 	private Button BackKey;
 	@FXML
 	private Button reset;
+	@FXML
+	private Button load;
+	@FXML
+	private Button save;
 	
 	@FXML
 	private Label L1;
@@ -140,11 +151,11 @@ public class SampleController {
 	ArrayList<Label> row5 = new ArrayList<Label>();
 	ArrayList<Label> row6 = new ArrayList<Label>();
 	ArrayList<ArrayList<Label>> board = new ArrayList<ArrayList<Label>>();
+	Popup popup = new Popup();
 	
 	public void initialize() {
 		answer = selector.getRandomWord().toUpperCase();
 		data.setAnswer(answer);
-		//System.out.println(answer);
 		buttons.addAll(Arrays.asList(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z));
 		row1.add(L1);
 		row1.add(L2);
@@ -218,12 +229,15 @@ public class SampleController {
 		enter(EnterKey);
 		backSpace(BackKey);
 		resetGame(reset);
+		save(save);
+		load(load);
 	}
 	
 	private void buttonPress(Button b) {
 		b.setOnAction(event -> {
 			if (gameLog.get_currChar() >= 5) {
-				System.out.println("Warning: Must be a 5 letter word");
+				String warning = "Warning: Must be a 5 letter word";
+				showPopup(warning);
 			}
 			else {
 				board.get(gameLog.get_numGuesses()).get(gameLog.get_currChar()).setText(b.getId());
@@ -248,9 +262,11 @@ public class SampleController {
 		b.setOnAction(event -> {
 			if (gameLog.get_currChar() > 4) {
 				String guess = board.get(gameLog.get_numGuesses()).get(0).getText() + board.get(gameLog.get_numGuesses()).get(1).getText() + board.get(gameLog.get_numGuesses()).get(2).getText() + board.get(gameLog.get_numGuesses()).get(3).getText() + board.get(gameLog.get_numGuesses()).get(4).getText();
-				boolean won = validateGuess(guess);
-				gameLog.resetChar();
-				gameLog.addGuess();
+				boolean won = validateGuess(guess, gameLog.get_numGuesses());
+				if (isValidWord) {
+					gameLog.resetChar();
+					gameLog.addGuess();
+				}
 				if (won || (!won && gameLog.get_numGuesses() == 6)) {
 					for (int i=0; i<26; i++) {
 						buttons.get(i).setDisable(true);
@@ -261,7 +277,33 @@ public class SampleController {
 				}
 			}
 			else {
-				System.out.println("Warning: This is not a 5 letter word");
+				String warning = "Warning: This is not a 5 letter word";
+				showPopup(warning);
+			}
+		});
+	}
+	
+	private void save(Button b) {
+		b.setOnAction(event -> {
+			// need to save: data in board, answer, currChar, numGuesses
+			gameLog.saveGame(answer, board);
+		});
+	}
+	
+	public void load(Button b) {
+		b.setOnAction(event -> {
+			answer = gameLog.loadGame(board);
+			data.setAnswer(answer);
+			for (int i=0; i<gameLog.get_numGuesses(); i++) {
+				String guess = board.get(i).get(0).getText() + board.get(i).get(1).getText() + board.get(i).get(2).getText() + board.get(i).get(3).getText() + board.get(i).get(4).getText();
+				boolean won = validateGuess(guess, i);
+				if (won) {
+					for (int j=0; j<26; j++) {
+						buttons.get(j).setDisable(true);
+					}
+					EnterKey.setDisable(true);
+					BackKey.setDisable(true);
+				}
 			}
 		});
 	}
@@ -277,6 +319,7 @@ public class SampleController {
 			}
 			for (int i=0; i<26; i++) {
 				buttons.get(i).setDisable(false);
+				buttons.get(i).setStyle(null);
 			}
 			EnterKey.setDisable(false);
 			BackKey.setDisable(false);
@@ -293,9 +336,12 @@ public class SampleController {
 		});
 	}
 	
-	private boolean validateGuess(String guess) {
+	private boolean validateGuess(String guess, int numGuesses) {
 		if (!selector.contains(guess)) {
-			System.out.println("Warning: Guess is not in word list");
+			String warning = "Warning: Guess is not in word list";
+			showPopup(warning);
+			isValidWord = false; 
+			return false;
 		}
 		boolean correct = true;
 		for (int i=0; i<5; i++) {
@@ -303,26 +349,54 @@ public class SampleController {
 			if (val != 2) correct = false;
 			
 			if (val == 0) {
-				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: red;");
+				board.get(numGuesses).get(i).setStyle("-fx-background-color: grey;");
 				for (int j=0; j<26; j++) {
-					if (board.get(gameLog.get_numGuesses()).get(i).getText() == buttons.get(j).getId()) buttons.get(j).setDisable(true);
+					//System.out.println(board.get(numGuesses).get(i).getText().charAt(0) == buttons.get(j).getId().charAt(0));
+					
+					if (board.get(numGuesses).get(i).getText().charAt(0) == buttons.get(j).getId().charAt(0)) {
+						buttons.get(j).setDisable(true);
+						buttons.get(j).setStyle("-fx-background-color: grey;");
+					}
 				}
 			}
 			else if (val == 1) {
-				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: yellow;");
+				board.get(numGuesses).get(i).setStyle("-fx-background-color: yellow;");
+				for (int j=0; j<26; j++) {
+					if (board.get(numGuesses).get(i).getText().charAt(0) == buttons.get(j).getId().charAt(0)) {
+						buttons.get(j).setStyle("-fx-background-color: yellow;");
+					}
+				}
 			}
 			else if (val == 2) {
-				board.get(gameLog.get_numGuesses()).get(i).setStyle("-fx-background-color: green;");
+				board.get(numGuesses).get(i).setStyle("-fx-background-color: green;");
+				for (int j=0; j<26; j++) {
+					if (board.get(numGuesses).get(i).getText().charAt(0) == buttons.get(j).getId().charAt(0)) {
+						buttons.get(j).setStyle("-fx-background-color: green;");
+					}
+				}
 			}
 		}
-		
+		isValidWord = true;
 		return correct;
 	}
 	
-	
-	/* TODO:
-	 -fix ethan
-	 -load and save feature
-	 -make ui nicer
-	 */
+	private void showPopup(String warning) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("Warning.fxml"));
+		WarningController warningController = new WarningController();
+		loader.setController(warningController);
+		Parent layout;
+		try {
+            layout = loader.load();
+            Scene scene = new Scene(layout);
+            Stage popupStage = new Stage();
+            warningController.setWarning(warning);
+            warningController.setStage(popupStage);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } 
+		catch (Exception e) {
+            e.getMessage();
+        }
+	}
 }

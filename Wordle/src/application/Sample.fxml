@@ -5,9 +5,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
@@ -29,88 +30,317 @@
             <RowConstraints maxHeight="-Infinity" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="L1" prefHeight="70.0" prefWidth="70.0">
+            <Label fx:id="L1" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" textAlignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font>
             </Label>
-            <Label fx:id="L2" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" />
-            <Label fx:id="L3" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" />
-            <Label fx:id="L4" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" />
-            <Label fx:id="L5" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" />
-            <Label fx:id="L6" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="1" />
-            <Label fx:id="L7" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="L8" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label fx:id="L9" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label fx:id="L10" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Label fx:id="L11" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="2" />
-            <Label fx:id="L12" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="L13" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="L14" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label fx:id="L15" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Label fx:id="L16" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="3" />
-            <Label fx:id="L17" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="L18" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label fx:id="L19" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label fx:id="L20" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Label fx:id="L21" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4" />
-            <Label fx:id="L22" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="L23" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label fx:id="L24" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label fx:id="L25" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Label fx:id="L26" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="5" />
-            <Label fx:id="L27" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="L28" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Label fx:id="L29" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="L30" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Label fx:id="L2" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L3" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L4" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L5" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L6" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L7" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L8" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L9" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L10" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L11" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L12" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L13" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L14" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L15" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L16" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L17" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L18" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L19" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L20" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L21" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L22" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L23" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L24" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L25" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L26" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.rowIndex="5">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L27" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L28" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L29" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="L30" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" prefHeight="70.0" prefWidth="70.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font></Label>
          </children>
       </GridPane>
    </center>
    <top>
       <Label text="Wordle" BorderPane.alignment="CENTER">
          <font>
-            <Font size="45.0" />
+            <Font name="SansSerif Bold" size="45.0" />
          </font>
          <padding>
             <Insets bottom="10.0" />
          </padding>
       </Label>
    </top>
-   <bottom>
-      <FlowPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="A" mnemonicParsing="false" text="A" />
-            <Button fx:id="B" mnemonicParsing="false" text="B" />
-            <Button fx:id="C" mnemonicParsing="false" text="C" />
-            <Button fx:id="D" mnemonicParsing="false" text="D" />
-            <Button fx:id="E" mnemonicParsing="false" text="E" />
-            <Button fx:id="F" mnemonicParsing="false" text="F" />
-            <Button fx:id="G" mnemonicParsing="false" text="G" />
-            <Button fx:id="H" mnemonicParsing="false" text="H" />
-            <Button fx:id="I" mnemonicParsing="false" text="I" />
-            <Button fx:id="J" mnemonicParsing="false" text="J" />
-            <Button fx:id="K" mnemonicParsing="false" text="K" />
-            <Button fx:id="L" mnemonicParsing="false" text="L" />
-            <Button fx:id="M" mnemonicParsing="false" text="M" />
-            <Button fx:id="N" mnemonicParsing="false" text="N" />
-            <Button fx:id="O" mnemonicParsing="false" text="O" />
-            <Button fx:id="P" mnemonicParsing="false" text="P" />
-            <Button fx:id="Q" mnemonicParsing="false" text="Q" />
-            <Button fx:id="R" mnemonicParsing="false" text="R" />
-            <Button fx:id="S" mnemonicParsing="false" text="S" />
-            <Button fx:id="T" mnemonicParsing="false" text="T" />
-            <Button fx:id="U" mnemonicParsing="false" text="U" />
-            <Button fx:id="V" mnemonicParsing="false" text="V" />
-            <Button fx:id="W" mnemonicParsing="false" text="W" />
-            <Button fx:id="X" mnemonicParsing="false" text="X" />
-            <Button fx:id="Y" mnemonicParsing="false" text="Y" />
-            <Button fx:id="Z" mnemonicParsing="false" text="Z" />
-            <Button fx:id="EnterKey" mnemonicParsing="false" text="Enter" />
-            <Button fx:id="BackKey" mnemonicParsing="false" text="&lt;--" />
-         </children>
-      </FlowPane>
-   </bottom>
    <left>
-      <Button fx:id="reset" mnemonicParsing="false" text="Reset Button" BorderPane.alignment="CENTER" />
+      <Button fx:id="reset" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Reset Game" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="380.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </Button>
    </left>
+   <right>
+      <VBox prefHeight="420.0" prefWidth="87.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="load" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Load">
+               <VBox.margin>
+                  <Insets left="18.0" />
+               </VBox.margin></Button>
+            <Button fx:id="save" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Save Game">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="527.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="355.0">
+               <children>
+                  <Button fx:id="Q" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="Q">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="W" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="W">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="E" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="E">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="R" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="R">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="T" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="T">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="Y" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="Y">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="U" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="U">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="I" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="I">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="O" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="O">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="P" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="P" />
+               </children>
+               <VBox.margin>
+                  <Insets left="85.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="324.0">
+               <children>
+                  <Button fx:id="A" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="A">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="S" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="S">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="D" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="D">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="F" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="F">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="G" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="G">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="H" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="H">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="K" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="K">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="J" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="J">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="L" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="L" />
+               </children>
+               <VBox.margin>
+                  <Insets left="98.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="334.0">
+               <children>
+                  <Button fx:id="EnterKey" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 5;" text="Enter">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="Z" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="Z">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="X" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="X">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="C" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="C">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="V" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="V">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="B" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="B">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="N" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="N">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="M" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" style="-fx-background-radius: 5;" text="M">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="BackKey" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 5;" text="&lt;--" />
+               </children>
+               <VBox.margin>
+                  <Insets left="88.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
 </BorderPane>
